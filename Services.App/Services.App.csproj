@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFEBBB5C-38D5-432A-A643-9006E471CAFB}</ProjectGuid>
+    <ProjectGuid>{BAB31F53-08EA-47EF-910C-A29E766B1BD6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StocksDown.Domain</RootNamespace>
-    <AssemblyName>StocksDown.Domain</AssemblyName>
+    <RootNamespace>Services.App</RootNamespace>
+    <AssemblyName>Services.App</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -39,36 +39,24 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TC.Common">
-      <HintPath>..\..\_External\TC.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="TC.DynamicLists.Common">
-      <HintPath>..\..\_External\DynamicLists\TC.DynamicLists.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="TC.DynamicLists.Domain">
-      <HintPath>..\..\_External\DynamicLists\TC.DynamicLists.Domain.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\BaseClass.cs" />
-    <Compile Include="IBaseClass.cs" />
-    <Compile Include="Models\Lookup.cs" />
-    <Compile Include="Models\LookupType.cs" />
-    <Compile Include="Models\Stock.cs" />
-    <Compile Include="Models\StockAttribute.cs" />
-    <Compile Include="Models\StockValue.cs" />
-    <Compile Include="Models\ValueType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IRepositories\" />
-    <Folder Include="IServices\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5b5fe0d8-5391-4f97-9e3a-beb719215fe0}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{afebbb5c-38d5-432a-a643-9006e471cafb}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain.Services\" />
+    <Folder Include="DTOs\" />
+    <Folder Include="IServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
