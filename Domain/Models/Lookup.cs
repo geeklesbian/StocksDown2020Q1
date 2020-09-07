@@ -12,11 +12,19 @@ namespace StocksDown.Domain.Models
         public Guid LookupTypeId { get; private set; }
         public string Name { get; private set; }
 
-        public Lookup(Guid id, Guid lookupTypeId, string name) : this(lookupTypeId, name)
+        public static Lookup New(Guid id, Guid lookupTypeId, string name)
+        {
+            return new Lookup(id, lookupTypeId, name);
+        }
+        public static Lookup New(Guid lookupTypeId, string name)
+        {
+            return new Lookup(lookupTypeId, name);
+        }
+        internal Lookup(Guid id, Guid lookupTypeId, string name) : this(lookupTypeId, name)
         {
             Id = id;
         }
-        public Lookup(Guid lookupTypeId, string name) : base(Guid.NewGuid())
+        internal Lookup(Guid lookupTypeId, string name) : base(Guid.NewGuid())
         {
             LookupTypeId = lookupTypeId;
             Name = name;

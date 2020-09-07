@@ -7,8 +7,8 @@
     <ProjectGuid>{BAB31F53-08EA-47EF-910C-A29E766B1BD6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Services.App</RootNamespace>
-    <AssemblyName>Services.App</AssemblyName>
+    <RootNamespace>StocksDown.Services</RootNamespace>
+    <AssemblyName>StocksDown.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\BaseDTO.cs" />
+    <Compile Include="DTOs\LookupDTO.cs" />
+    <Compile Include="DTOs\LookupTypeDTO.cs" />
+    <Compile Include="DTOs\StockAttributeDTO.cs" />
+    <Compile Include="DTOs\StockDTO.cs" />
+    <Compile Include="DTOs\StockValueDTO.cs" />
+    <Compile Include="DTOs\ValueTypeDTO.cs" />
+    <Compile Include="IBaseDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,8 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain.Services\" />
-    <Folder Include="DTOs\" />
-    <Folder Include="IServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

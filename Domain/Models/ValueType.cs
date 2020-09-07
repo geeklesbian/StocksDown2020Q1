@@ -11,6 +11,14 @@ namespace StocksDown.Domain.Models
         public string Name { get; private set; }
         public string SystemType { get; private set; }
 
+        public static ValueType New(string name, string systemType)
+        {
+            return new ValueType(name, systemType);
+        }
+        public static ValueType Mew(Guid id, string name, string systemType)
+        {
+            return new ValueType(id, name, systemType);
+        }
         internal ValueType(Guid id, string name, string systemType) : this(name, systemType)
         {
             Id = id;
@@ -21,6 +29,5 @@ namespace StocksDown.Domain.Models
             SystemType = systemType;
         }
         protected ValueType() : base() { }
-
     }
 }

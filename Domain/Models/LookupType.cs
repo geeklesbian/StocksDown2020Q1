@@ -10,6 +10,15 @@ namespace StocksDown.Domain.Models
     {
         public string Name { get; private set; }
 
+
+        public static LookupType New(Guid id, string name)
+        {
+            return new LookupType(id, name);
+        }
+        public static LookupType New(string name)
+        {
+            return new LookupType(name);
+        }
         internal LookupType(Guid id, string name) : this(name)
         {
             Id = id;

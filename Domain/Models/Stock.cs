@@ -13,6 +13,14 @@ namespace StocksDown.Domain.Models
         public DateTime AsOf { get; private set; }
 
         
+        public static Stock New(Guid id, string symbol, string company, DateTime asOf)
+        {
+            return new Stock(id, symbol, company, asOf);
+        }
+        public static Stock New(string symbol, string company)
+        {
+            return new Stock(symbol, company);
+        }
         internal Stock(Guid id, string symbol, string company, DateTime asOf) : this(symbol, company)
         {
             Id = id;
