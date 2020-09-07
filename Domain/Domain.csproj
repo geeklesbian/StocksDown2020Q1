@@ -50,6 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\ILookupRepositoryGet.cs" />
+    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="IRepositories\IStockRepositoryGet.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="IBaseClass.cs" />
     <Compile Include="Models\Lookup.cs" />
@@ -60,10 +63,7 @@
     <Compile Include="Models\ValueType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IRepositories\" />
-    <Folder Include="IServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5b5fe0d8-5391-4f97-9e3a-beb719215fe0}</Project>

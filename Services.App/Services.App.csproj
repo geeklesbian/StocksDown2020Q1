@@ -49,6 +49,9 @@
     <Compile Include="DTOs\StockValueDTO.cs" />
     <Compile Include="DTOs\ValueTypeDTO.cs" />
     <Compile Include="IBaseDTO.cs" />
+    <Compile Include="IServices\ILookupServiceGet.cs" />
+    <Compile Include="IServices\IService.cs" />
+    <Compile Include="IServices\IStockServiceGet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,8 +64,6 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain.Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

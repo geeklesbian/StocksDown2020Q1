@@ -15,7 +15,7 @@ namespace StocksDown.Domain.Models
         {
             return new ValueType(name, systemType);
         }
-        public static ValueType Mew(Guid id, string name, string systemType)
+        public static ValueType New(Guid id, string name, string systemType)
         {
             return new ValueType(id, name, systemType);
         }
