@@ -12,7 +12,9 @@ namespace StocksDown.Domain.Models
         public Guid StockId { get; private set; }
         public Guid ValueTypeId { get; private set; }
         public string Value { get; private set; }
-
+        
+        public Stock Stock { get; protected set; }
+        public ValueType ValueType { get; protected set; }
 
         public static StockValue New(Guid id, Guid stockId, Guid valueTypeId, string value)
         {

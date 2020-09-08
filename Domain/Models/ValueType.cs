@@ -11,6 +11,8 @@ namespace StocksDown.Domain.Models
         public string Name { get; private set; }
         public string SystemType { get; private set; }
 
+        public List<StockValue> StockValues { get; set; } = new List<StockValue>();
+
         public static ValueType New(string name, string systemType)
         {
             return new ValueType(name, systemType);

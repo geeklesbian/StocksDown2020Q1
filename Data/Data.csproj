@@ -51,11 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\LookupConfiguration.cs" />
+    <Compile Include="Configurations\LookupTypeConfiguration.cs" />
+    <Compile Include="Configurations\StockAttributeConfiguration.cs" />
+    <Compile Include="Configurations\StockConfiguration.cs" />
+    <Compile Include="Configurations\StockValueConfiguration.cs" />
+    <Compile Include="Configurations\ValueTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StocksDownContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{5b5fe0d8-5391-4f97-9e3a-beb719215fe0}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{afebbb5c-38d5-432a-a643-9006e471cafb}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

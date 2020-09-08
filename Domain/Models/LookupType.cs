@@ -10,6 +10,7 @@ namespace StocksDown.Domain.Models
     {
         public string Name { get; private set; }
 
+        public List<Lookup> Lookups { get; set; } = new List<Lookup>();
 
         public static LookupType New(Guid id, string name)
         {
