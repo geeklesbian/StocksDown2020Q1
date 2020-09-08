@@ -51,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepositories\ILookupRepositoryGet.cs" />
+    <Compile Include="IRepositories\ILookupRepositoryPut.cs" />
     <Compile Include="IRepositories\IRepository.cs" />
     <Compile Include="IRepositories\IStockRepositoryGet.cs" />
+    <Compile Include="IRepositories\IStockRepositoryPut.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="IBaseClass.cs" />
     <Compile Include="Models\Lookup.cs" />
