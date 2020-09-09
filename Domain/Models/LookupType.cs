@@ -28,6 +28,6 @@ namespace StocksDown.Domain.Models
         {
             Name = name;
         }
-        protected LookupType() : base() { }
+        public LookupType() : base() { }
     }
 }

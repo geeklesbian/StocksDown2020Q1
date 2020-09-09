@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StocksDown.Inf.Data.Configurations
 {
-    class ValueTypeConfiguration : EntityTypeConfiguration<Domain.Models.ValueType>
+    class ValueTypeConfiguration : EntityTypeConfiguration<LUValueType>
     {
         public ValueTypeConfiguration() : base()
         {

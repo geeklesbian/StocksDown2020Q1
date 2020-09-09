@@ -58,6 +58,12 @@
     <Compile Include="Configurations\StockValueConfiguration.cs" />
     <Compile Include="Configurations\ValueTypeConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\FindRepository.cs" />
+    <Compile Include="Repositories\LookupRepositoryGet.cs" />
+    <Compile Include="Repositories\LookupRepositoryPut.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\StockRepositoryGet.cs" />
+    <Compile Include="Repositories\StockRepositoryPut.cs" />
     <Compile Include="StocksDownContext.cs" />
   </ItemGroup>
   <ItemGroup>

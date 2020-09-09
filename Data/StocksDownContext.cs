@@ -31,7 +31,7 @@ namespace StocksDown.Inf.Data
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StockAttribute> StockAttributes { get; set; }
         public virtual DbSet<StockValue> StockValues { get; set; }
-        public virtual DbSet<Domain.Models.ValueType> ValueTypes { get; set; }
+        public virtual DbSet<LUValueType> ValueTypes { get; set; }
 
     }
 }

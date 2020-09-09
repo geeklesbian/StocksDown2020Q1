@@ -14,7 +14,7 @@ namespace StocksDown.Domain.Models
         public string Value { get; private set; }
         
         public Stock Stock { get; protected set; }
-        public ValueType ValueType { get; protected set; }
+        public LUValueType ValueType { get; protected set; }
 
         public static StockValue New(Guid id, Guid stockId, Guid valueTypeId, string value)
         {
@@ -34,6 +34,6 @@ namespace StocksDown.Domain.Models
             ValueTypeId = valueTypeId;
             Value = value;
         }
-        protected StockValue() : base() { }
+        public StockValue() : base() { }
     }
 }

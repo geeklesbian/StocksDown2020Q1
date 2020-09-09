@@ -8,13 +8,14 @@ using StocksDown.Domain.Models;
 
 namespace StocksDown.Domain.IRepositories
 {
-    public interface ILookupRepositoryGet : IRepository
+    public interface ILookupRepositoryGet : IDisposable
     {
         Lookup GetLookup(Guid id);
+        IReadOnlyList<Lookup> GetLookups();
         LookupType GetLookupType(Guid id);
-        List<Lookup> LookupsByTypeId(Guid lookupTypeId);
-        List<LookupType> LookupTypes();
-        Domain.Models.ValueType GetValueType(Guid id);
-        List<Domain.Models.ValueType> ValueTypes();
+        IReadOnlyList<Lookup> GetLookupsByLookupTypeId(Guid lookupTypeId);
+        IReadOnlyList<LookupType> GetLookupTypes();
+        LUValueType GetValueType(Guid id);
+        IReadOnlyList<LUValueType> GetValueTypes();
     }
 }

@@ -33,6 +33,6 @@ namespace StocksDown.Domain.Models
             LookupTypeId = lookupTypeId;
             Name = name;
         }
-        protected Lookup() : base() { }
+        public Lookup() : base() { }
     }
 }

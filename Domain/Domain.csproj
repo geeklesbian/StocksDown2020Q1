@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\IFindRepository.cs" />
     <Compile Include="IRepositories\ILookupRepositoryGet.cs" />
     <Compile Include="IRepositories\ILookupRepositoryPut.cs" />
     <Compile Include="IRepositories\IRepository.cs" />
@@ -62,7 +63,7 @@
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockAttribute.cs" />
     <Compile Include="Models\StockValue.cs" />
-    <Compile Include="Models\ValueType.cs" />
+    <Compile Include="Models\LUValueType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

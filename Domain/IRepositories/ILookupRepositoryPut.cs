@@ -14,7 +14,7 @@ namespace StocksDown.Domain.IRepositories
         Lookup UpdateLookup(Lookup lookup);
         LookupType AddLookupType(LookupType lookupType);
         LookupType UpdateLookupType(LookupType lookupType);
-        Domain.Models.ValueType AddValueType(Domain.Models.ValueType valueType);
-        Domain.Models.ValueType UpdateValueType(Domain.Models.ValueType valueType);
+        LUValueType AddValueType(LUValueType valueType);
+        LUValueType UpdateValueType(LUValueType valueType);
     }
 }

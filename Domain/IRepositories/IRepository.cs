@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace StocksDown.Domain.IRepositories
 {
-    public interface IRepository<TEntity> : IDisposable
+    public interface IRepository<TEntity> : IFindRepository<TEntity>
         where TEntity : class, IBaseClass, new()
     {
-        IReadOnlyList<TEntity> GetReadonlyList();
-        TEntity Get(Guid id);
         TEntity Add(TEntity entity);
         TEntity Update(TEntity entity);
+        void Remove(TEntity entity);
+        void Remove(Guid id);
+        void Save();
     }
 }

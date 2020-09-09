@@ -34,7 +34,7 @@ namespace StocksDown.Domain.Models
             AttributeId = attributeId;
             AsOf = DateTime.Now;
         }
-        protected StockAttribute() : base() { }
+        public StockAttribute() : base() { }
 
     }
 }

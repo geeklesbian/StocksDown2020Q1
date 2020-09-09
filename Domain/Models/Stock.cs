@@ -34,6 +34,6 @@ namespace StocksDown.Domain.Models
             Company = company;
             AsOf = DateTime.Now;
         }
-        protected Stock() : base() { }
+        public Stock() : base() { }
     }
 }

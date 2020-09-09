@@ -13,15 +13,15 @@ namespace StocksDown.Services
         public string Name { get; set; }
         public string SystemType { get; set; }
 
-        public static ValueTypeDTO FromModel(Domain.Models.ValueType m)
+        public static ValueTypeDTO FromModel(LUValueType m)
         {
             return new ValueTypeDTO(m.Id, m.Name, m.SystemType);
         }
-        public static Domain.Models.ValueType ToModel(ValueTypeDTO d)
+        public static LUValueType ToModel(ValueTypeDTO d)
         {
-            return Domain.Models.ValueType.New(d.Id, d.Name, d.SystemType);
+            return LUValueType.New(d.Id, d.Name, d.SystemType);
         }
-        public Domain.Models.ValueType ToModel()
+        public LUValueType ToModel()
         {
             return ToModel(this);
         }
