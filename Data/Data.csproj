@@ -57,6 +57,11 @@
     <Compile Include="Configurations\StockConfiguration.cs" />
     <Compile Include="Configurations\StockValueConfiguration.cs" />
     <Compile Include="Configurations\ValueTypeConfiguration.cs" />
+    <Compile Include="Migrations\202010040842198_init.cs" />
+    <Compile Include="Migrations\202010040842198_init.designer.cs">
+      <DependentUpon>202010040842198_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FindRepository.cs" />
     <Compile Include="Repositories\LookupRepositoryGet.cs" />
@@ -70,7 +75,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5b5fe0d8-5391-4f97-9e3a-beb719215fe0}</Project>
@@ -80,6 +84,11 @@
       <Project>{afebbb5c-38d5-432a-a643-9006e471cafb}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010040842198_init.resx">
+      <DependentUpon>202010040842198_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

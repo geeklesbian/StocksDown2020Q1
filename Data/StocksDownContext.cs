@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,13 @@ namespace StocksDown.Inf.Data
 {
     public class StocksDownContext : DbContext
     {
-        internal StocksDownContext() : base() { }
+        public StocksDownContext() : this(@"data source=localhost\SQL20191;initial catalog=StocksDown;persist security info=True;user id=StocksDownUser;password=20200316;MultipleActiveResultSets=True;App=EntityFramework") { }
         public StocksDownContext(string contextName) : base(contextName)
         { }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new LookupConfiguration());
             modelBuilder.Configurations.Add(new LookupTypeConfiguration());
             modelBuilder.Configurations.Add(new StockConfiguration());

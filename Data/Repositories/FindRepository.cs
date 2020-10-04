@@ -44,8 +44,16 @@ namespace StocksDown.Inf.Data.Repositories
         protected virtual void Dispose(bool disposing)
         {
             if (!_isDisposed && disposing)
-            {
-                _dbContext = null;
+            { 
+                if(_dbSet != null)
+                {
+                    _dbSet = null;
+                }
+                if (_dbContext != null)
+                {
+                    _dbContext.Dispose();
+                    _dbContext = null;
+                }
             }
         }
     }

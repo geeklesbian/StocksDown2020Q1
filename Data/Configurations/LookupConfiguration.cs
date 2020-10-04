@@ -13,7 +13,7 @@ namespace StocksDown.Inf.Data.Configurations
         {
             HasKey(p => p.Id);
 
-            HasRequired(p => p.Name);
+            Property(p => p.Name).IsRequired();
             HasRequired(p => p.LookupType).WithMany(e => e.Lookups).HasForeignKey(p => p.LookupTypeId).WillCascadeOnDelete(false);
         }
     }

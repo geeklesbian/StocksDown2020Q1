@@ -45,7 +45,15 @@ namespace StocksDown.Inf.Data.Repositories
             return _stockValues.Update(stockValue);
         }
 
-
+        public StockRepositoryPut() : base() { }
+        public StockRepositoryPut(string connection) : this(new StocksDownContext(connection))
+        {}
+        internal StockRepositoryPut(StocksDownContext context) : base(context)
+        {
+            _stocks = new Repository<Stock>(context);
+            _stockAttributes = new Repository<StockAttribute>(context);
+            _stockValues = new Repository<StockValue>(context);
+        }
         private bool _isDisposed = false;
         public override void Dispose()
         {

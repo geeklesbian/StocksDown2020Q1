@@ -13,7 +13,7 @@ namespace StocksDown.Domain.Models
         public DateTime AsOf { get; private set; } = DateTime.Now;
 
         public Stock Stock { get; set; } 
-        public Lookup Lookup { get; set; }
+        public Lookup AttributeLookup { get; set; }
 
         public static StockAttribute New(Guid id, Guid stockId, Guid attributeId, DateTime asOf)
         {

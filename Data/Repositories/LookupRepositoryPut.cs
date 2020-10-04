@@ -45,8 +45,14 @@ namespace StocksDown.Inf.Data.Repositories
             return _valueTypes.Update(valueType);
         }
 
-
-
+        public LookupRepositoryPut() : base() { }
+        public LookupRepositoryPut(string connection) : this(new StocksDownContext(connection)) { }
+        internal LookupRepositoryPut(StocksDownContext context) : base(context)
+        {
+            _lookups = new Repository<Lookup>(context);
+            _lookupTypes = new Repository<LookupType>(context);
+            _valueTypes = new Repository<LUValueType>(context);
+        }
         private bool _isDisposed = false;
         public override void Dispose()
         {

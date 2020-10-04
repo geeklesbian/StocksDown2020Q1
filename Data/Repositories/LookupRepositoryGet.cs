@@ -9,7 +9,7 @@ using StocksDown.Domain.IRepositories;
 
 namespace StocksDown.Inf.Data.Repositories
 {
-    public class LookupRepositoryGet : ILookupRepositoryGet
+    public class LookupRepositoryGet : Repository, ILookupRepositoryGet
     {
         FindRepository<Lookup> _lookups;
         FindRepository<LookupType> _lookupTypes;
@@ -49,20 +49,27 @@ namespace StocksDown.Inf.Data.Repositories
         }
 
 
-        internal LookupRepositoryGet(StocksDownContext context)
+        internal LookupRepositoryGet(StocksDownContext context) : base(context)
         {
             _lookups = new FindRepository<Lookup>(context);
             _lookupTypes = new FindRepository<LookupType>(context);
             _valueTypes = new FindRepository<LUValueType>(context);
         }
 
+        public LookupRepositoryGet(string connection) : this(new StocksDownContext(connection))
+        {}
+
+        public LookupRepositoryGet()
+        {
+        }
+
         private bool _isDisposed = false;
-        public virtual void Dispose()
+        public override void Dispose()
         {
             this.Dispose(true);
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (!_isDisposed && disposing)
             {
@@ -81,8 +88,9 @@ namespace StocksDown.Inf.Data.Repositories
                     _valueTypes.Dispose();
                     _valueTypes = null;
                 }
+                _isDisposed = disposing;
             }
-            _isDisposed = disposing;
+            base.Dispose(disposing);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace StocksDown.Inf.Data.Configurations
             HasKey(p => p.Id);
 
             HasRequired(p => p.Stock).WithMany(e => e.StockAttributes).HasForeignKey(p => p.StockId).WillCascadeOnDelete(false);
-            HasRequired(p => p.Lookup).WithMany(e => e.StockAttributes).HasForeignKey(p => p.AttributeId).WillCascadeOnDelete(false);
+            HasRequired(p => p.AttributeLookup).WithMany(e => e.StockAttributes).HasForeignKey(p => p.AttributeId).WillCascadeOnDelete(false);
         }
     }
 }

@@ -15,8 +15,8 @@ namespace StocksDown.Inf.Data.Configurations
         {
             HasKey(p => p.Id);
 
-            HasRequired(p => p.Symbol);
-            HasRequired(p => p.Company);
+            Property(p => p.Symbol).IsRequired();
+            Property(p => p.Company).IsRequired();
         }
     }
 }

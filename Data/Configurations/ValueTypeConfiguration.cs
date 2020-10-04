@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using StocksDown.Domain.Models;
+
 namespace StocksDown.Inf.Data.Configurations
 {
     class ValueTypeConfiguration : EntityTypeConfiguration<LUValueType>
@@ -13,8 +15,8 @@ namespace StocksDown.Inf.Data.Configurations
         {
             HasKey(p => p.Id);
 
-            HasRequired(p => p.Name);
-            HasRequired(p => p.SystemType);
+            Property(p => p.Name).IsRequired();
+            Property(p => p.SystemType).IsRequired();
         }
     }
 }

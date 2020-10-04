@@ -9,7 +9,7 @@ using StocksDown.Domain.IRepositories;
 
 namespace StocksDown.Inf.Data.Repositories
 {
-    public class StockRepositoryGet : IStockRepositoryGet, IDisposable
+    public class StockRepositoryGet : Repository, IStockRepositoryGet
     {
         IFindRepository<Stock> _stocks;
         IFindRepository<StockAttribute> _stockAttributes;
@@ -49,12 +49,13 @@ namespace StocksDown.Inf.Data.Repositories
         public IReadOnlyList<Stock> GetStocksByAttributeId(Guid attributeId)
         {
             List<Stock> attributeStocks = new List<Stock>();
-            IReadOnlyList<StockAttribute> sas = GetStockAttributesByAttributeId(attributeId);
-            foreach(Guid stockId in sas.Select(sa => sa.StockId))
+            List<StockAttribute> sas = new List<StockAttribute>();
+            sas = GetStockAttributesByAttributeId(attributeId).ToList();
+            if (sas != null && !sas.First().Id.Equals(Guid.Empty))
             {
-                attributeStocks.Add(GetStock(stockId));
+                return sas.Select(sa => GetStock(sa.StockId)).ToList().AsReadOnly();
             }
-            return attributeStocks.AsReadOnly();
+            return new List<Stock>().AsReadOnly();
         }
 
         public IReadOnlyList<Stock> GetStocksByValueTypeId(Guid valueTypeId)
@@ -88,13 +89,62 @@ namespace StocksDown.Inf.Data.Repositories
             return _stockValues.GetReadonlyList().Where(sv => sv.ValueTypeId == valueTypeId).ToList().AsReadOnly();
         }
 
+        public IReadOnlyList<Lookup> GetAttributesByStockid(Guid stockId)
+        {
+            IReadOnlyList<StockAttribute> stockAttributes = GetStockAttributesByStockId(stockId);
+            List<Lookup> attributes = new List<Lookup>();
+            foreach(StockAttribute sa in stockAttributes)
+            {
+                Lookup lu = new Lookup();
+                try
+                {
+                    lu = _lookups.GetLookup(sa.AttributeId);
+                }
+                catch (Exception)
+                {
+                    // do nothing. We new'd it so we could return it no matter what happened. That saves us time in coding.
+                    //throw;
+                }
+                if(lu.Id != Guid.Empty)
+                {
+                    // again, single check. It's all you have to know. Is the Guid good or bad? The rest is done.
+                    attributes.Add(lu);
+                    // In everything you do, look at the situation and logic the shit out of it. The only answer is the logical one. One way or another.
+                }
+            }
+            // It will either be a fully instantiated empty list or a fully instantiated filled list. No checks needed.
+            return attributes.AsReadOnly();
+        }
+
+        public IReadOnlyList<LUValueType> GetValueTypesByStockId(Guid stockId)
+        {
+            List<LUValueType> valueTypes = new List<LUValueType>();
+            foreach(StockValue stockValue in GetStockValuesByStockId(stockId).ToList())
+            {
+                valueTypes.Add(_lookups.GetValueType(stockValue.ValueTypeId));
+            }
+            return valueTypes;
+        }
+
+        internal StockRepositoryGet(StocksDownContext context) : base(context)
+        {
+            _lookups = new LookupRepositoryGet(context);
+            _stockAttributes = new FindRepository<StockAttribute>(context);
+            _stocks = new FindRepository<Stock>(context);
+            _stockValues = new FindRepository<StockValue>(context);
+        }
+        public StockRepositoryGet(string connection) : this(new StocksDownContext(connection)) { }
+
+        public StockRepositoryGet()
+        {
+        }
 
         private bool _isDisposed = false;
-        public virtual void Dispose()
+        public override void Dispose()
         {
-            this.Dispose(true)
+            this.Dispose(true);
         }
-        protected virtual void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if(!_isDisposed && disposing)
             {
@@ -113,8 +163,9 @@ namespace StocksDown.Inf.Data.Repositories
                     _stockValues.Dispose();
                     _stockValues = null;
                 }
+                _isDisposed = disposing;
             }
-            _isDisposed = disposing;
+            base.Dispose(disposing);
         }
     }
 }
